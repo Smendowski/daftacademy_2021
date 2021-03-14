@@ -1,15 +1,4 @@
-graph = {
-    'START': {'2_1': 2, '2_2': 5}, 
-    '2_1': {'2_2': 5, '3_1': 4, '3_2': 8}, 
-    '2_2': {'2_1': 2, '3_2': 8, '3_3': 2}, 
-    '3_1': {'3_2': 8, 'END': 7}, 
-    '3_2': {'3_1': 4, '3_3': 2, 'END': 7},
-    '3_3': {'3_2': 8, 'END': 7},
-    'END': {}
-    }
-
-
-def search_min_path(graph, initial='START', destination='END'):
+def search_min_path(graph: dict, initial: str='START', destination: str='END') -> list:
     path = {}
     adj_node = {}
     queue = []
@@ -47,4 +36,14 @@ def search_min_path(graph, initial='START', destination='END'):
 
 
 if __name__ == "__main__":
+    graph = {
+        'START': {'2_1': 2, '2_2': 5}, 
+        '2_1': {'2_2': 5, '3_1': 4, '3_2': 8}, 
+        '2_2': {'2_1': 2, '3_2': 8, '3_3': 2}, 
+        '3_1': {'3_2': 8, 'END': 7}, 
+        '3_2': {'3_1': 4, '3_3': 2, 'END': 7},
+        '3_3': {'3_2': 8, 'END': 7},
+        'END': {}
+    }
+
     print(search_min_path(graph))

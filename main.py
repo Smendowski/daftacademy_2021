@@ -1,36 +1,8 @@
-"""
-TAK TO MA WYGLĄDAĆ!!
-
-     7
-    2 5
-   4 8 2
-
-Traktujemy jak:
-
-  START
-   2 5
-  4 8 2
-    7 
-  (END)
-
-graph = {
-    'START': {'2_1': 2, '2_2': 5}, 
-    '2_1': {'2_2': 5, '3_1': 4, '3_2': 8}, 
-    '2_2': {'2_1': 2, '3_2': 8, '3_3': 2}, 
-    '3_1': {'3_2': 8, 'END': 7}, 
-    '3_2': {'3_1': 4, '3_3': 2, 'END': 7},
-    '3_3': {'3_2': 8, 'END': 7},
-    'END': {}
-    }
-
-cost = {'START': 0, '2_1': inf, '2_2': inf, '3_1': inf, '3_2': inf, '3_3': inf, 'END': inf}
-"""
-
 import os
 import pprint
 from algorithm import search_min_path
 
-def populate_labels(entry_triangle: dict):
+def populate_labels(entry_triangle: dict) -> dict:
     labels = {}
     for layer, elements in entry_triangle.items():
         for idx, element in enumerate(elements):
@@ -44,7 +16,7 @@ def populate_labels(entry_triangle: dict):
 
     return labels
 
-def create_graph(labels: dict, size):
+def create_graph(labels: dict, size: int) -> dict:
     graph = {}
     for node, flow in labels.items():
         # special cases
@@ -73,26 +45,50 @@ def create_graph(labels: dict, size):
 
     return graph
 
-script_dir = os.path.dirname(__file__)
-rel_path = "data/1-very_easy.txt"
-abs_path = os.path.join(script_dir, rel_path)
 
-triangle = {}
-with open(abs_path, "r") as f:
-    file = f.read().splitlines()
-    file = [line.replace(' ', '') for line in file]
-    for idx, line in enumerate(file):
-        triangle[idx + 1] = [int(x) for x in line]
+def remap_labels(path: list, labels: dict) -> str:
+    remapped = []
+    for node in path:
+        if node != 'END':
+            remapped.append(labels[node])
+    return ''.join([str(x) for x in remapped])
 
-SIZE = len(triangle)
 
-print(triangle)
+def sum_path(path: str) -> int:
+    sum = 0
+    for char in path:
+        sum += int(char)
+    return sum
 
-labels = populate_labels(triangle)
-# print(labels)
 
-graph = create_graph(labels, SIZE)
-# pprint.pprint(graph)
+def main():
+    script_dir = os.path.dirname(__file__)
+    rel_path = "data/3-medium.txt"
+    abs_path = os.path.join(script_dir, rel_path)
 
-result = search_min_path(graph)
-print(result)
+    triangle = {}
+    with open(abs_path, "r") as f:
+        file = f.read().splitlines()
+        file = [line.replace(' ', '') for line in file]
+        for idx, line in enumerate(file):
+            triangle[idx + 1] = [int(x) for x in line]
+
+    SIZE = len(triangle)
+
+    labels = populate_labels(triangle)
+    #print(labels)
+
+    graph = create_graph(labels, SIZE)
+    #pprint.pprint(graph)
+
+    result = search_min_path(graph)
+    #print(result)
+
+    remapped_result = remap_labels(result, labels)
+    print(f"Path: {remapped_result}")
+
+    summed_path = sum_path(remapped_result)
+    print(f"Sum: {summed_path}")
+
+if __name__ == "__main__":
+    main()
