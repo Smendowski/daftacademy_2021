@@ -56,22 +56,12 @@ Powodzenia 👍
 
 #### 1a Trójkąt very_easy suma liczb w najmniejszej ścieżce
 
-Twoja odpowiedź...
-13
 #### 1b Trójkąt very_easy najmniejsza ścieżka(i)
 
-Twoja odpowiedź...
-14
 #### 2a Trójkąt easy suma liczb w najmniejszej ścieżce
 
-Twoja odpowiedź...
-15
 #### 2b Trójkąt easy najmniejsza ścieżka(i)
 
-Twoja odpowiedź...
-16
 #### 3a Trójkąt medium suma liczb w najmniejszej ścieżce
 
-Twoja odpowiedź...
-17
 #### 3b Trójkąt medium najmniejsza ścieżka(i)
