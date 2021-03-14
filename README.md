@@ -56,12 +56,24 @@ Powodzenia 👍
 
 #### 1a Trójkąt very_easy suma liczb w najmniejszej ścieżce
 
+> 18
+
 #### 1b Trójkąt very_easy najmniejsza ścieżka(i)
+
+> 24471
 
 #### 2a Trójkąt easy suma liczb w najmniejszej ścieżce
 
+> 44
+
 #### 2b Trójkąt easy najmniejsza ścieżka(i)
+
+> 112833115217333
 
 #### 3a Trójkąt medium suma liczb w najmniejszej ścieżce
 
+> 278
+
 #### 3b Trójkąt medium najmniejsza ścieżka(i)
+
+> 54321171213632111411643331823271291141232141215224515221211315711241321233815221218172512222111431245111
