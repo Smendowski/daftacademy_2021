@@ -1,3 +1,5 @@
 testujemy opcję "co-authored by"
 
 dodanie maila jest konieczne
+
+test z mailem gmail
