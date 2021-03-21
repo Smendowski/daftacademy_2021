@@ -1,1 +1,3 @@
 testujemy opcję "co-authored by"
+
+dodanie maila jest konieczne
